@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Haynz Encrypt Pvt Ltd</title>
+  <style>
+    :root {
+      --blue: #1f1e2e;
+      --ivory: #fffff0;
+    }
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background-color: var(--ivory);
+      color: var(--blue);
+    }
+    header {
+      background-color: var(--blue);
+      color: var(--ivory);
+      padding: 15px;
+      text-align: center;
+      font-size: 1.5rem;
+      font-weight: bold;
+    }
+    .tab-buttons {
+      display: flex;
+      justify-content: center;
+      background-color: var(--blue);
+      flex-wrap: wrap;
+    }
+    .tab-buttons button {
+      background-color: transparent;
+      color: var(--ivory);
+      border: none;
+      padding: 14px 20px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background 0.3s;
+    }
+    .tab-buttons button:hover,
+    .tab-buttons button.active {
+      background-color: var(--ivory);
+      color: var(--blue);
+    }
+    .tab-content {
+      max-width: 1000px;
+      margin: auto;
+      padding: 20px;
+      min-height: 300px;
+      box-sizing: border-box;
+    }
+    .hidden { display: none; }
+    .search-bar input[type="text"] {
+      padding: 8px;
+      width: 250px;
+      border: 1px solid var(--blue);
+    }
+    .search-bar button {
+      padding: 8px 12px;
+      background-color: var(--blue);
+      color: var(--ivory);
+      border: none;
+      cursor: pointer;
+    }
+    .social-tile {
+      border: 1px solid var(--blue);
+      padding: 10px;
+      display: inline-block;
+      margin: 5px;
+      background-color: var(--ivory);
+      cursor: pointer;
+    }
+    footer {
+      text-align: center;
+      padding: 10px;
+      font-size: 14px;
+      background-color: var(--blue);
+      color: var(--ivory);
+    }
+  </style>
+</head>
+<body>
+<header>
+  Haynz Encrypt
+</header>
+<h2 style="text-align:center;">Secure. Seamless. Sophisticated</h2>
+
+<div class="tab-buttons">
+  <button class="active" onclick="openTab(this, 'about')">About Us</button>
+  <button onclick="openTab(this, 'docverify')">Doc Verify</button>
+  <button onclick="openTab(this, 'platform')">Platform</button>
+  <button onclick="openTab(this, 'customercare')">Customer Care</button>
+</div>
+
+<div class="tab-content">
+  <div id="about">
+    <h1 style="text-align:center;">About Us</h1>
+    <p>Haynz Encrypt is a private limited company registered in the heart of UK. We, as a technology company dedicated to providing world-class software solutions, digital security, and IT consultancy services. We specialize in developing secure, efficient, and scalable systems for businesses worldwide. Our expertise covers software development, data encryption, network protection, and custom enterprise solutions.</p>
+  </div>
+
+  <div id="docverify" class="hidden">
+    <center>
+      <h2>Document Verification</h2>
+      <div class="search-bar">
+        <input type="text" id="docCode" placeholder="Enter document code" />
+        <button onclick="verifyDoc()">Verify</button>
+      </div>
+      <p>Enter document verification number in the search bar</p>
+    </center>
+    <div id="docResult" style="margin-top:20px;"></div>
+  </div>
+
+  <div id="platform" class="hidden">
+    <h2>Platform</h2>
+    <p>Website: <a href="https://haynzenc.com" target="_blank">haynzenc.com</a></p>
+    <div id="socialTiles"></div>
+    <div id="socialInfo" style="margin-top:20px;"></div>
+  </div>
+
+  <div id="customercare" class="hidden">
+    <h2>Customer Care</h2>
+    <p>Our customer care is dedicated to providing top-notch support to every client. We are always ready to assist with professionalism and care.</p>
+    <p>Hotline: +44 111 222 333</p>
+    <p>Email: support@haynzenc.com</p>
+  </div>
+</div>
+
+<footer>&copy; 2025 Haynz Encrypt Pvt Ltd. All rights reserved.</footer>
+
+<script>
+function openTab(button, id) {
+  document.querySelectorAll('.tab-content > div').forEach(div => div.classList.add('hidden'));
+  document.getElementById(id).classList.remove('hidden');
+  document.querySelectorAll('.tab-buttons button').forEach(btn => btn.classList.remove('active'));
+  button.classList.add('active');
+}
+
+function verifyDoc() {
+  const code = document.getElementById('docCode').value.trim().toLowerCase();
+  const result = document.getElementById('docResult');
+  if (code === 'h70') {
+    result.innerHTML = '<p><strong>Document Found:</strong> Digital protection...</p>';
+  } else if (code === 'e38') {
+    result.innerHTML = '<p><strong>Info about BMW E38</strong> ...</p>';
+  } else {
+    result.innerHTML = '<p>No document found for this code.</p>';
+  }
+}
+
+const platforms = [
+  { name: 'YouTube', url: 'https://youtube.com/@haynzenc' },
+  { name: 'Facebook', url: 'https://facebook.com/@haynzenc' },
+  { name: 'TikTok', url: 'https://tiktok.com/@haynzenc' },
+  { name: 'X', url: 'https://x.com/haynzenc' },
+  { name: 'Instagram', url: 'https://instagram.com/haynzenc' },
+  { name: 'Threads', url: 'https://threads.net/haynzenc' },
+  { name: 'GitHub', url: 'https://github.com/haynzenc' },
+  { name: 'Telegram', url: 'https://t.me/haynzenc' }
+];
+
+const socialTiles = document.getElementById('socialTiles');
+const socialInfo = document.getElementById('socialInfo');
+
+platforms.forEach((p) => {
+  const tile = document.createElement('div');
+  tile.className = 'social-tile';
+  tile.innerText = p.name;
+  tile.onclick = () => {
+    socialInfo.innerHTML = `<h3>${p.name}</h3><p><a href="${p.url}" target="_blank">Open Profile</a></p>`;
+  };
+  socialTiles.appendChild(tile);
+});
+</script>
+
+</body>
+</html>
