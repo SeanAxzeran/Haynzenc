@@ -93,7 +93,7 @@
   <button onclick="openTab(this, 'docverify')">Doc Verify</button>
   <button onclick="openTab(this, 'platform')">Platform</button>
   <button onclick="openTab(this, 'customercare')">Customer Care</button>
-  <button oneclick="openTab(this, 'Internship')">Internship</button>
+  <button onclick="openTab(this, 'internship')">Internship</button>
 </div>
 
 <div class="tab-content">
@@ -132,7 +132,7 @@ Thus shall we serve, steadfast in mind and heart.</em>
     <div id="socialTiles"></div>
     <div id="socialInfo" style="margin-top:20px;"></div>
   </div>
-  <div id="Internship" class="hidden">
+  <div id="internship" class="hidden">
     <center>
       <h2>We do not offer internship right now</h2>
     </center>
@@ -154,14 +154,15 @@ function openTab(button, id) {
   document.getElementById(id).classList.remove('hidden');
   document.querySelectorAll('.tab-buttons button').forEach(btn => btn.classList.remove('active'));
   button.classList.add('active');
+  document.querySelectorAll('.tab-content > div');
 }
 
 function verifyDoc() {
   const code = document.getElementById('docCode').value.trim().toLowerCase();
   const result = document.getElementById('docResult');
-  if (code === 'Data') {
+  if (code === 'data') {
     result.innerHTML = '<p><strong>Document Found:</strong>Data base connect pannala if clause potuthan build panna :).<br>SQL injection ondum pode vena</p>';
-  } else if (code === 'A1') {
+  } else if (code === 'a1') {
     result.innerHTML = '<p><Website nalla irika??></p>';
   } else {
     result.innerHTML = '<p>No document found for this code.</p>';
