@@ -93,6 +93,7 @@
   <button onclick="openTab(this, 'docverify')">Doc Verify</button>
   <button onclick="openTab(this, 'platform')">Platform</button>
   <button onclick="openTab(this, 'customercare')">Customer Care</button>
+  <button oneclick="openTab(this, 'Internship')">Internship</button>
 </div>
 
 <div class="tab-content">
@@ -131,6 +132,11 @@ Thus shall we serve, steadfast in mind and heart.</em>
     <div id="socialTiles"></div>
     <div id="socialInfo" style="margin-top:20px;"></div>
   </div>
+  <div id="Internship" class="hidden">
+    <center>
+      <h2>We do not offer internship right now</h2>
+    </center>
+  </div>
 
   <div id="customercare" class="hidden">
     <h2>Customer Care</h2>
@@ -153,10 +159,10 @@ function openTab(button, id) {
 function verifyDoc() {
   const code = document.getElementById('docCode').value.trim().toLowerCase();
   const result = document.getElementById('docResult');
-  if (code === 'h70') {
-    result.innerHTML = '<p><strong>Document Found:</strong> Digital protection...</p>';
-  } else if (code === 'e38') {
-    result.innerHTML = '<p><strong>Info about BMW E38</strong> ...</p>';
+  if (code === 'Data') {
+    result.innerHTML = '<p><strong>Document Found:</strong>Data base connect pannala if clause potuthan build panna :).<br>SQL injection ondum pode vena</p>';
+  } else if (code === 'A1') {
+    result.innerHTML = '<p><Website nalla irika??></p>';
   } else {
     result.innerHTML = '<p>No document found for this code.</p>';
   }
@@ -164,7 +170,6 @@ function verifyDoc() {
 
 const platforms = [
   { name: 'YouTube', url: 'https://youtube.com/@haynzenc' },
-  { name: 'Facebook', url: 'https://facebook.com/@haynzenc' },
   { name: 'TikTok', url: 'https://tiktok.com/@haynzenc' },
   { name: 'X', url: 'https://x.com/haynzenc' },
   { name: 'Instagram', url: 'https://instagram.com/haynzenc' },
